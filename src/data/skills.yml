@@ -1,0 +1,65 @@
+# Skills
+
+# Leadership and collaboration
+- skill: Leadership and collaboration
+  columns: 1
+  description:
+    - Cross-functional leadership across operations, procurement, and data initiatives
+    - Stakeholder management, requirements gathering, and executive communication
+    - Training, enablement, and change management to drive adoption and standardization
+
+# Data engineering and platforms
+- skill: Data engineering and platforms
+  columns: 3
+  description:
+    - Microsoft Fabric
+    - Microsoft Azure
+    - Data lakehouse
+    - Medallion architecture
+    - Airflow
+    - ETL/ELT orchestration
+
+# Programming and data
+- skill: Programming and data
+  columns: 3
+  description:
+    - Python
+    - SQL
+    - PySpark
+    - Data modeling
+    - Git / GitHub
+    - DevOps
+    - Linux
+    - API
+    - DAX
+    - JavaScript
+    - MATLAB
+
+# Analytics and BI
+- skill: Analytics and BI
+  columns: 3
+  description:
+    - Power BI
+    - KPI reporting and dashboards
+    - Power Apps
+    - Power Automate
+    - Power Pages
+
+# Supply chain and logistics
+- skill: Supply chain and logistics
+  columns: 3
+  description:
+    - Procurement and contract management
+    - Inventory planning and forecasting
+    - Supplier relationship management
+    - Warehouse management
+    - ERP and process improvement
+    - Logistics optimization
+
+# Languages
+- skill: Languages
+  columns: 3
+  description:
+    - Norwegian (Native)
+    - English (Fluent)
+    - German (Basic)

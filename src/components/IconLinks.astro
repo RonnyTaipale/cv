@@ -1,0 +1,127 @@
+---
+import IconGithub from "./icons/icon-github.astro";
+import IconTwitter from "./icons/icon-twitter.astro";
+import IconMedium from "./icons/icon-medium.astro";
+import IconDribbble from "./icons/icon-dribbble.astro";
+import IconFacebook from "./icons/icon-facebook.astro";
+import IconLinkedin from "./icons/icon-linkedin.astro";
+import IconInstagram from "./icons/icon-instagram.astro";
+import IconWebsite from "./icons/icon-website.astro";
+
+const { links } = Astro.props;
+const isValidHref = (href) =>
+  typeof href === "string" &&
+  href.trim() !== "" &&
+  href.trim() !== "#" &&
+  !href.trim().toLowerCase().startsWith("javascript:");
+const hasLinks = links && Object.values(links).some(isValidHref);
+---
+
+{hasLinks && (
+  <ul class="icon-links">
+    {isValidHref(links?.resume_github_url) && (
+      <li class="icon-link-item">
+        <a
+          href={links.resume_github_url}
+          class="icon-link"
+          itemprop="sameAs"
+          aria-label="GitHub"
+        >
+          <IconGithub />
+        </a>
+      </li>
+    )}
+
+    {isValidHref(links?.resume_twitter_url) && (
+      <li class="icon-link-item">
+        <a
+          href={links.resume_twitter_url}
+          class="icon-link"
+          itemprop="sameAs"
+          aria-label="Twitter"
+        >
+          <IconTwitter />
+        </a>
+      </li>
+    )}
+
+    {isValidHref(links?.resume_medium_url) && (
+      <li class="icon-link-item">
+        <a
+          href={links.resume_medium_url}
+          class="icon-link"
+          itemprop="url"
+          aria-label="Medium"
+        >
+          <IconMedium />
+        </a>
+      </li>
+    )}
+
+    {isValidHref(links?.resume_dribbble_url) && (
+      <li class="icon-link-item">
+        <a
+          href={links.resume_dribbble_url}
+          class="icon-link"
+          itemprop="sameAs"
+          aria-label="Dribbble"
+        >
+          <IconDribbble />
+        </a>
+      </li>
+    )}
+
+    {isValidHref(links?.resume_facebook_url) && (
+      <li class="icon-link-item">
+        <a
+          href={links.resume_facebook_url}
+          class="icon-link"
+          itemprop="sameAs"
+          aria-label="Facebook"
+        >
+          <IconFacebook />
+        </a>
+      </li>
+    )}
+
+    {isValidHref(links?.resume_linkedin_url) && (
+      <li class="icon-link-item">
+        <a
+          href={links.resume_linkedin_url}
+          class="icon-link"
+          itemprop="sameAs"
+          aria-label="LinkedIn"
+        >
+          <IconLinkedin />
+        </a>
+      </li>
+    )}
+
+    {isValidHref(links?.resume_instagram_url) && (
+      <li class="icon-link-item">
+        <a
+          href={links.resume_instagram_url}
+          class="icon-link"
+          itemprop="sameAs"
+          aria-label="Instagram"
+        >
+          <IconInstagram />
+        </a>
+      </li>
+    )}
+
+    {isValidHref(links?.resume_website_url) && (
+      <li class="icon-link-item">
+        <a
+          href={links.resume_website_url}
+          class="icon-link"
+          itemprop="url"
+          aria-label="Website"
+        >
+          <IconWebsite />
+        </a>
+      </li>
+    )}
+  </ul>
+)
+}

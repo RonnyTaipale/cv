@@ -1,0 +1,414 @@
+---
+import { Image } from "astro:assets";
+import "../styles/main.scss";
+import profilePic from "../assets/profilepic.jpg";
+import {
+  site,
+  experience,
+  education,
+  projects,
+  skills,
+  certifications,
+  recognitions,
+  associations,
+  interests,
+  links,
+} from "../data/resumeData.js";
+import IconLinks from "../components/IconLinks.astro";
+import PrintSocialLinks from "../components/PrintSocialLinks.astro";
+
+const themeClass = site.resumeTheme ? `theme-${site.resumeTheme}` : "";
+const isValidHref = (href) =>
+  typeof href === "string" &&
+  href.trim() !== "" &&
+  href.trim() !== "#" &&
+  !href.trim().toLowerCase().startsWith("javascript:");
+const baseUrl = import.meta.env.BASE_URL;
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{site.title}</title>
+
+    {site.resumeTheme === "default" && (
+      <link
+        href="https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,300,800,700"
+        rel="stylesheet"
+        type="text/css"
+      />
+    )}
+
+    <meta name="description" content={site.description} />
+    <link rel="canonical" href={site.url} />
+    <link rel="icon" type="image/x-icon" href={`${baseUrl}favicon.png`} />
+  </head>
+
+  <body class={themeClass}>
+    <div class="wrapper" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="telephone" content={site.resumeContactTelephone} />
+      <meta itemprop="address" content={site.resumeContactAddress} />
+
+      <header class="page-header">
+        <button class="theme-toggle no-print" type="button" aria-pressed="false">
+          <span class="toggle-track" aria-hidden="true">
+            <span class="toggle-icon sun"></span>
+            <span class="toggle-icon moon"></span>
+            <span class="toggle-knob"></span>
+          </span>
+          <span class="toggle-label">Toggle dark mode</span>
+        </button>
+        {site.resumeAvatar && (
+          <Image
+            src={profilePic}
+            alt={site.resumeName}
+            class="avatar"
+            itemprop="image"
+          />
+        )}
+
+        <h1 class="header-name" itemprop="name">{site.resumeName}</h1>
+
+        {site.displayHeaderContactInfo && (
+          <div class="header-contact-info">
+            <p>{site.resumeHeaderContactInfo}</p>
+          </div>
+        )}
+
+        <div class="title-bar">
+          <h2 class="header-title" itemprop="jobTitle">{site.resumeTitle}</h2>
+          <div class="no-print">
+            <IconLinks links={site.resumeSocialLinks} />
+          </div>
+        </div>
+
+        <div class="executive-summary" itemprop="description">
+          {Array.isArray(site.resumeHeaderIntro)
+            ? site.resumeHeaderIntro.map((item) => <p>{item}</p>)
+            : site.resumeHeaderIntro && <p>{site.resumeHeaderIntro}</p>}
+        </div>
+
+        {site.resumeLookingForWork === "yes" && (
+          <a
+            href={`mailto:${site.resumeContactEmail}`}
+            class="contact-button no-print"
+            itemprop="email"
+          >
+            Contact me
+          </a>
+        )}
+
+        {site.resumeLookingForWork === "no" && (
+          <span class="contact-button not-looking no-print">
+            I&apos;m not looking for work right now.
+          </span>
+        )}
+      </header>
+
+      {site.sections.experience && (
+        <section class="content-section experience-section">
+          <header class="section-header">
+            <h2>Experience</h2>
+          </header>
+
+          {experience.map((job) => (
+            <div
+              class="resume-item"
+              itemscope
+              itemprop="worksFor"
+              itemtype="http://schema.org/Organization"
+            >
+              <h3 class="resume-item-title" itemprop="name">
+                <span set:html={job.company} />
+              </h3>
+              <h4 class="resume-item-details" itemprop="description">
+                <span class="detail-left">{job.position}</span>
+                <span class="detail-right" set:html={job.duration} />
+              </h4>
+              {job.summary &&
+                (Array.isArray(job.summary) ? (
+                  <ul class="resume-item-list">
+                    {job.summary.map((item) => (
+                      <li set:html={item} />
+                    ))}
+                  </ul>
+                ) : (
+                  <div class="resume-item-copy" set:html={job.summary} />
+                ))}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {site.sections.education && (
+        <section class="content-section education-section">
+          <header class="section-header">
+            <h2>Education</h2>
+          </header>
+
+          {education.map((educationItem) => (
+            <div
+              class="resume-item"
+              itemscope
+              itemprop="alumniOf"
+              itemtype="http://schema.org/CollegeOrUniversity"
+            >
+              <h3 class="resume-item-title" itemprop="name">{educationItem.uni}</h3>
+              <h4 class="resume-item-details group" itemprop="description">
+                <span class="detail-left">{educationItem.degree}</span>
+                <span class="detail-right" set:html={educationItem.year} />
+              </h4>
+              {educationItem.award && (
+                <h5 class="resume-item-details award-title" itemprop="description">
+                  {educationItem.award}
+                </h5>
+              )}
+              {educationItem.awards?.length && (
+                <ul class="resume-item-list">
+                  {educationItem.awards.map((award) => (
+                    <li>{award.award}</li>
+                  ))}
+                </ul>
+              )}
+              {educationItem.summary &&
+                (Array.isArray(educationItem.summary) ? (
+                  <ul class="resume-item-list" itemprop="description">
+                    {educationItem.summary.map((subject) => (
+                      <li>{subject}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p class="resume-item-copy" itemprop="description">
+                    {educationItem.summary}
+                  </p>
+                ))}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {site.sections.projects && (
+        <section class="content-section projects-section">
+          <header class="section-header">
+            <h2>Projects</h2>
+          </header>
+
+          {projects.map((project) => (
+            <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
+              <meta itemprop="creator" content={site.resumeName} itemtype="http://schema.org/Person" />
+              <h3 class="resume-item-title" itemprop="name">
+                {isValidHref(project.url) ? (
+                  <a href={project.url} itemprop="url">
+                    {project.project}
+                  </a>
+                ) : (
+                  project.project
+                )}
+              </h3>
+              <h4 class="resume-item-details" itemprop="description">
+                <span class="detail-left">{project.role}</span>
+                <span class="detail-right" set:html={project.duration} />
+              </h4>
+              {project.description &&
+                (Array.isArray(project.description) ? (
+                  <ul class="resume-item-list">
+                    {project.description.map((bullet) => (
+                      <li>{bullet}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p class="resume-item-copy">{project.description}</p>
+                ))}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {site.sections.skills && (
+        <section class="content-section skills-section">
+          <header class="section-header">
+            <h2>Skills</h2>
+          </header>
+
+          {skills.map((skill) => (
+            <div class="resume-item">
+              <h4 class="resume-item-details">{skill.skill}</h4>
+              {skill.description &&
+                (Array.isArray(skill.description) ? (
+                  <ul
+                    class="resume-item-list"
+                    data-columns={
+                      skill.description.length > 1 ? skill.columns ?? 2 : 1
+                    }
+                  >
+                    {skill.description.map((bullet) => (
+                      <li>{bullet}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p class="resume-item-copy">{skill.description}</p>
+                ))}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {site.sections.certifications && (
+        <section class="content-section certifications-section">
+          <header class="section-header">
+            <h2>Certifications</h2>
+          </header>
+
+          {certifications.map((cert) => (
+            <div class="resume-item">
+              <h4 class="resume-item-details">{cert.name}</h4>
+              <p class="resume-item-copy">
+                {cert.issuer}
+                {cert.year ? (
+                  <span> &bull; {cert.year}</span>
+                ) : (
+                  ""
+                )}
+              </p>
+              {cert.summary && <p class="resume-item-copy">{cert.summary}</p>}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {site.sections.recognition && (
+        <section class="content-section recognition-section">
+          <header class="section-header">
+            <h2>Recognition</h2>
+          </header>
+
+          {recognitions.map((recognition) => (
+            <div class="resume-item">
+              <h3 class="resume-item-title" itemprop="award">
+                {recognition.award}
+              </h3>
+              <h4 class="resume-item-details">
+                <span class="detail-left">{recognition.organization}</span>
+                <span class="detail-right">{recognition.year}</span>
+              </h4>
+              <p class="resume-item-copy">{recognition.summary}</p>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {site.sections.associations && (
+        <section class="content-section associations-section">
+          <header class="section-header">
+            <h2>Associations</h2>
+          </header>
+
+          {associations.map((association) => (
+            <div
+              class="resume-item"
+              itemscope
+              itemprop="memberOf"
+              itemtype="http://schema.org/Organization"
+            >
+              <h3 class="resume-item-title" itemprop="name">
+                {isValidHref(association.url) ? (
+                  <a href={association.url}>{association.organization}</a>
+                ) : (
+                  association.organization
+                )}
+              </h3>
+              <h4 class="resume-item-details" itemprop="description">
+                <span class="detail-left">{association.role}</span>
+                <span class="detail-right" set:html={association.year} />
+              </h4>
+              <p class="resume-item-copy">{association.summary}</p>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {site.sections.interests && (
+        <section class="content-section">
+          <header class="section-header">
+            <h2>Outside Interests</h2>
+          </header>
+
+          <div class="resume-item">
+            <ul class="resume-item-list">
+              {interests.map((interest) => (
+                <li>{interest.description}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {site.sections.links && (
+        <section class="content-section">
+          <header class="section-header">
+            <h2>Additional Links</h2>
+          </header>
+
+          <div class="resume-item">
+            <ul class="resume-item-list">
+              {links.map((link) => (
+                <li>
+                  {isValidHref(link.url) ? (
+                    <a href={link.url} itemprop="url">
+                      {link.description}
+                    </a>
+                  ) : (
+                    <span>{link.description}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {site.resumePrintSocialLinks && (
+        <section class="content-section print-only">
+          <header class="section-header">
+            <h2>Social Links</h2>
+          </header>
+
+          <div class="resume-item">
+            <PrintSocialLinks links={site.resumeSocialLinks} />
+          </div>
+        </section>
+      )}
+
+      <footer class="page-footer">
+        {site.resumeFooter}
+      </footer>
+    </div>
+    <script is:inline>
+      const storageKey = "resume-theme";
+      const toggle = document.querySelector(".theme-toggle");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const saved = localStorage.getItem(storageKey);
+      const isDark = saved ? saved === "dark" : systemDark;
+
+      const applyTheme = (enabled) => {
+        document.body.classList.toggle("theme-dark", enabled);
+        if (toggle) {
+          toggle.setAttribute("aria-pressed", String(enabled));
+        }
+      };
+
+      applyTheme(isDark);
+
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const next = !document.body.classList.contains("theme-dark");
+          applyTheme(next);
+          localStorage.setItem(storageKey, next ? "dark" : "light");
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+# Jobs
+- company: Knutsen OAS
+  position: Data Analysis Engineer
+  duration: "Feb, 2023 &mdash; Present"
+  summary:
+    # - "<strong>Responsibilities</strong>: Data Analysis Engineer in the company’s data analytics department, responsible for the operation and development of the department. This includes the development and maintenance of the corporate data warehouse, establishing ETL solutions for data collection, production of reports based on business needs. Responsible for staying current with knowledge and trends in the field." 
+    # - "<strong>Results</strong>: Planned and implemented data analytics solutions using Microsoft Azure and Microsoft Fabric, setting up data lake with a medallion architecture, and developed ETL processes to gather data from multiple sources using SQL and APIs. Managed projects to collect both internal and external data, ensuring data quality and security throughout the flow. Also established proper documentation practices. Developed a Power Apps application for data collection."
+    # - Responsible for operations, development, and architecture of the company's data and analytics platform.
+    # - Implemented a data lake with medallion architecture using Microsoft Azure and Fabric.
+    # - Built a Power Pages solution for fleet management that replaced manual Excel processes and ensured structured collection of operational and consumption data.
+    # - Developed and optimized ETL/ELT processes with a focus on data quality and robustness using tools such as Airflow and Azure Data Factory.
+    # - Established automated reports and dashboards in Power BI for strategic decision-making.
+  - Planned and implemented an end-to-end data analytics platform using Microsoft Azure and Microsoft Fabric, enabling scalable data ingestion, storage, and reporting.
+  - Built a medallion-architecture data lake to standardize data processing and improve reliability for downstream reporting and analytics.
+  - Developed and optimized ETL/ELT pipelines using SQL, APIs, Azure Data Factory, and Airflow, consolidating data from multiple internal and external sources into a unified model.
+  - Led data collection projects end-to-end, ensuring strong data quality, security, and governance across the full data flow.
+  - Delivered automated Power BI reports and dashboards to support strategic decision-making and reduce manual reporting effort.
+  - Replaced manual Excel-based workflows by building a Power Pages/Power Apps solution for fleet management, enabling structured and traceable collection of operational and consumption data.
+  - Established documentation standards and best practices to improve maintainability, onboarding, and long-term scalability of the analytics environment.
+
+- company: RamBase
+  position: Systems Consultant
+  duration: "Aug, 2022 &mdash; Jan, 2023"
+  summary:
+    - Specialized in logistics and procurement with responsibility for implementation projects and user training.
+    - Served as the link between customers and the development team to translate needs into functional solutions.
+    # System consultant with specialization in logistics and procurement. Acts as the link between our customers and the development of RamBase. Job responsibilities include, but are not limited to, carrying out implementation projects of RamBase for new customers, guiding customers in the use of the system and translating the customer's needs into actual system requirements.
+
+- company: Fredrik & Louisa Logistics
+  position: Head of Procurement and Logistics
+  duration: "Nov, 2018 &mdash; Aug, 2022"
+  summary:
+    - Responsible for process improvement, digitization, and cost-efficient warehouse management.
+    - Developed scanning tools that halved goods-receipt time and automated processes saving about 30 labor hours per week.
+    - Implemented min/max control and advanced inventory analysis in Power BI.
+  # Responsibilities:  Head of Procurement & Logistics at Hava Logistics AS. Responsible for improving and streamlining processes in the procurement and logistics division, and to ensure optimal inventory and financial cost-effectiveness. Contribute to creating a learning environment and to secure internal competence enhancement within the Procurement & Logistics discipline. Responsible for annual and ongoing inventory count. Key-personnel in the implementation of the company’s new ERP system, responsibility for WMS.
+
+  # Results: Results: Implemented min/max calculations in Power-BI to optimize inventory and liquidity. Enhanced supplier collaboration for accurate margins and streamlined purchase processes. Reduced goods registration time by 50% and improved HSSE through an Excel-based scanning tool. Developed Excel and Power-BI tools that cut manual work by ~30 hours weekly and boosted business insights. Standardized Teams and SharePoint usage company-wide.
+
+
+- company: Aibel
+  position: Senior Buyer
+  duration: "Jan, 2012 &mdash; Nov, 2018"
+  summary:
+    - Project buyer responsible for strategies, tenders, and complex contract negotiations.
+    - Process owner for materials management in the management system (W3) and development of cost reports for leadership.
+  # Responsibility:  Project purchaser in multiple projects. Developed purchasing strategies and managed requests for quotation. Commercial evaluation of offers, arranged BCM and Kick-off meetings. Prepared purchase contracts, initiated and executed follow-up plans and follow-up activities with suppliers. Handled and coordinated purchase variation orders. Handled penalty and warranty claims. Process owner of "Material management for purchase in modifications" in W3, which is Aibel's management system.
+
+  # Results: Ensured delivery of goods according to plan, through comprehensive follow-up of the suppliers.  Created a cost report in Excel which provided the Project Managers with an overview of when costs would occur, down to the cost carrier level.
+
+
+- company: H&oslash;gskolen i Stord/Haugesund
+  position: Lecturer in Mathematical Programming
+  duration: "Nov, 2014"
+  summary:
+    - Taught MATLAB for solving advanced mathematical and engineering problems.

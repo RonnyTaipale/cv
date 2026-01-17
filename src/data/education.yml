@@ -1,0 +1,60 @@
+# Degree
+
+- degree: Individual Subjects
+  uni: University of Bergen (UiB)
+  year: "2021 &mdash; 2022"
+  summary:
+    - Course in basic programming
+    - Introduction to Cybersecurity
+
+- degree: Individual Subjects
+  uni: Western Norway University of Applied Sciences
+  year: "2021"
+  summary:
+    - Machine learning for business development
+
+- degree: Individual Subjects
+  uni: Norwegian University of Science and Technology (NTNU)
+  year: "2021"
+  summary:
+    - Digital Strategy and Management
+    - Introduction to Big Data
+    - Introduction to Logistic Management
+
+- degree: Individual Subjects
+  uni: Molde University College
+  year: "2021"
+  summary:
+    - Information Technology
+    - Practical Programming
+    - Databases
+    - Business Processes and ERP
+    - Purchase Management
+    - Value Chain Analysis
+    - Inventory and Production Planning
+
+- degree: Individual Subjects
+  uni: University of South-Eastern Norway
+  year: "2021"
+  summary:
+    - Python programming for calculations
+
+- degree: Individual Subjects
+  uni: Western Norway University of Applied Sciences
+  year: "2015"
+  summary:
+    - Project Management and Leadership
+
+- degree: Master of Technology (Sivilingenior), Industrial Technology
+  uni: The Arctic University of Norway
+  year: "2010 &mdash; 2012"
+  summary:
+    - Specialization in quality management, optimization, Supply Chain Management, and innovation.
+  # Quality Management and Improvement, Optimization, Innovation and Economics, Supply Chain Management, Manufacturing Logistics, Innovation and Management.
+
+- degree: Bachelor in engineering, Machines, process and energy
+  uni: Western Norway University of Applied Sciences
+  year: "2007 &mdash; 2010"
+  summary: 
+    - Specialization in risk and safety management, petroleum production, and subsea technology.
+  # Quality, Risks and Safety, Economics for Engineers, Petroleum Production and Underwater Technology. Materials and Manufacturing, Process Instrumentation.
